@@ -11,7 +11,7 @@
     "start": "node build.mjs && echo Open dist/index.html"
   },
   "devDependencies": {
-    "jsdom": "^25.0.0"
+    "jsdom": "^30.0.0"
   },
   "license": "MIT",
   "author": "Aryan",
