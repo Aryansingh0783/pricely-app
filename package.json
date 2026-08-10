@@ -1,0 +1,25 @@
+{
+  "name": "pricely",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Nail studio inventory, pricing and profit tracking for a freelance nail artist.",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/engine.test.mjs",
+    "test:ui": "node build.mjs && node test/ui.test.mjs",
+    "test:all": "node build.mjs && node --test test/engine.test.mjs && node test/ui.test.mjs",
+    "start": "node build.mjs && echo Open dist/index.html"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0"
+  },
+  "license": "MIT",
+  "author": "Aryan",
+  "keywords": [
+    "pwa",
+    "pricing",
+    "inventory",
+    "small-business",
+    "offline-first"
+  ]
+}

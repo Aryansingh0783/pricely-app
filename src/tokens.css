@@ -1,0 +1,279 @@
+/* ==========================================================================
+   PRICELY — Design Tokens
+   Brand: sampled directly from the Pricely logo asset —
+     pink #C9184A · plum #2B1A1F · cream #FBF7F3 · blush #F7C6D1 · ink #2E1B22
+   Layout/type/elevation system derived from the VOIT Design System references.
+   --------------------------------------------------------------------------
+   Extracted from the supplied boards:
+     • Color      — 31 families x 12 steps  -> we carry the families we need
+     • Typography — Hero 92 ... Note 10 (15 sizes)
+     • Grid       — 4px base grid
+     • Effect     — 7 shadow elevations
+     • Material   — light + dark surfaces, "hazy" translucent material
+     • Button     — 6 intents x 4 emphases (Fill / Light / Outline / Subtle)
+
+   RULE: no component may use a raw hex value. Everything routes through a
+   semantic token so the entire look can be re-skinned without touching logic.
+   ========================================================================== */
+
+:root {
+  /* ---------- PALETTE (primitives) ------------------------------------- */
+  /* Pricely pink — sampled from the logo mark (#C9184A core) */
+  --pink-50:  #FCEEF2;
+  --pink-100: #F7C6D1;   /* tile stroke in the logo */
+  --pink-200: #F09FB2;
+  --pink-300: #E77792;
+  --pink-400: #DD4E72;
+  --pink-500: #D22B5B;
+  --pink-600: #C9184A;   /* the mark itself */
+  --pink-700: #A31240;
+  --pink-800: #7C0D33;
+  --pink-900: #560A25;
+
+  /* Pricely plum — the wordmark ink and app-icon tile */
+  --plum-1000:#170D11;
+  --plum-950: #201218;
+  --plum-900: #2B1A1F;   /* icon tile */
+  --plum-800: #3A262E;
+  --plum-700: #4A323C;
+  --plum-600: #6E585F;
+  --plum-500: #8A737B;
+  --plum-400: #A8929A;
+
+  /* Pricely cream — the brand ground */
+  --cream-50:  #FBF7F3;  /* logo background */
+  --cream-100: #F4ECE4;
+  --cream-200: #EAE0D6;
+  --cream-300: #DCCFC2;
+
+  /* Gray / Iron — neutral spine */
+  --gray-0:   #FFFFFF;
+  --gray-25:  #FCFCFD;
+  --gray-50:  #F5F5F7;
+  --gray-100: #EDEDF0;
+  --gray-200: #E3E3E8;
+  --gray-300: #D2D2D9;
+  --gray-400: #A9A9B4;
+  --gray-500: #82828E;
+  --gray-600: #6E6E7A;
+  --gray-700: #4A4A55;
+  --gray-800: #2C2C31;
+  --gray-850: #1C1C1F;
+  --gray-900: #131316;
+  --gray-950: #0A0A0B;
+  --gray-1000:#000000;
+
+  /* Semantic accents */
+  --green-100: #DCF6E6;  --green-500: #1FAF62;  --green-600: #178A4D;
+  --gold-100:  #FFF1D6;  --gold-500:  #E5A011;  --gold-600:  #B87C08;
+  --red-100:   #FFE3E0;  --red-500:   #FF3B30;  --red-600:   #D92A20;
+
+  /* ---------- SURFACE / MATERIAL --------------------------------------- */
+  --color-bg:              var(--cream-50);
+  --color-surface:         #FFFFFF;
+  --color-surface-sunken:  var(--cream-100);
+  --color-surface-raised:  #FFFFFF;
+  --color-surface-inverse: var(--plum-900);
+  --color-hazy:            rgb(251 247 243 / 0.78);
+  --color-hazy-border:     rgb(255 255 255 / 0.55);
+  --color-scrim:           rgb(23 13 17 / 0.45);
+
+  /* ---------- BORDER ---------------------------------------------------- */
+  --color-border:        var(--cream-200);
+  --color-border-strong: var(--cream-300);
+  --color-border-subtle: var(--cream-100);
+
+  /* ---------- TEXT ------------------------------------------------------ */
+  --color-text:          #2E1B22;                /* the wordmark ink */
+  --color-text-secondary:var(--plum-600);
+  --color-text-muted:    var(--plum-500);
+  --color-text-inverse:  var(--cream-50);
+  --color-text-accent:   var(--pink-600);
+
+  /* ---------- INTENT ---------------------------------------------------- */
+  --color-accent:          var(--pink-600);
+  --color-accent-hover:    var(--pink-700);
+  --color-accent-light:    var(--pink-50);
+  --color-on-accent:       #FFFFFF;
+
+  --color-primary:         var(--plum-900);      /* the plum pill */
+  --color-on-primary:      var(--cream-50);
+  --color-secondary:       var(--cream-100);
+  --color-on-secondary:    #2E1B22;
+
+  --color-positive:        var(--green-500);
+  --color-positive-light:  var(--green-100);
+  --color-warning:         var(--gold-500);
+  --color-warning-light:   var(--gold-100);
+  --color-destructive:     var(--red-500);
+  --color-destructive-light:var(--red-100);
+
+  /* ---------- TYPOGRAPHY ------------------------------------------------ */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text",
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-body);
+  --font-numeric: "Inter", ui-rounded, -apple-system, "SF Pro Display", sans-serif;
+  --font-logo: "Playfair Display", "Georgia", "Times New Roman", serif;
+
+  /* VOIT scale — exact sizes from the Typography board */
+  --text-hero:        92px;   --lh-hero:        0.96;
+  --text-display-1:   80px;   --lh-display-1:   0.98;
+  --text-display-2:   56px;   --lh-display-2:   1.02;
+  --text-display-3:   48px;   --lh-display-3:   1.04;
+  --text-h1:          36px;   --lh-h1:          1.12;
+  --text-h2:          30px;   --lh-h2:          1.16;
+  --text-h3:          24px;   --lh-h3:          1.22;
+  --text-title-1:     22px;   --lh-title-1:     1.26;
+  --text-title-2:     18px;   --lh-title-2:     1.32;
+  --text-title-3:     16px;   --lh-title-3:     1.38;
+  --text-headline:    14px;   --lh-headline:    1.40;
+  --text-body:        14px;   --lh-body:        1.52;
+  --text-body-sm:     12px;   --lh-body-sm:     1.50;
+  --text-pre-headline:11px;   --lh-pre-headline:1.36;
+  --text-note:        10px;   --lh-note:        1.40;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  --tracking-tight: -0.022em;   /* display sizes */
+  --tracking-snug:  -0.012em;
+  --tracking-normal: 0em;
+  --tracking-wide:   0.06em;    /* pre-headline / eyebrow caps */
+
+  /* ---------- SPACING — 4px grid --------------------------------------- */
+  --space-0:  0px;   --space-1:  4px;   --space-2:  8px;   --space-3:  12px;
+  --space-4:  16px;  --space-5:  20px;  --space-6:  24px;  --space-7:  28px;
+  --space-8:  32px;  --space-10: 40px;  --space-12: 48px;  --space-16: 64px;
+  --space-20: 80px;  --space-24: 96px;
+
+  /* ---------- RADIUS ---------------------------------------------------- */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   26px;
+  --radius-2xl:  32px;
+  --radius-full: 999px;
+  /* Nested radius: an inner corner must be OUTER minus its inset, or the two
+     curves fight and the card looks slightly wrong without anyone knowing why. */
+  --radius-nested: calc(var(--radius-lg) - var(--space-3));
+
+  /* ---------- ELEVATION — 7 steps ---------------------------------------
+     Two things make these read as real light rather than a grey smudge:
+
+     1. INK-TINTED, NOT BLACK. Pure black over a warm cream ground desaturates
+        to muddy grey. Tinting with the wordmark ink (46,27,34) keeps the
+        shadow in the same colour family as the page.
+     2. LAYERED. A single blur is a blob. Real objects cast a tight contact
+        shadow AND a wide ambient one; stacking them is what sells depth.
+     -------------------------------------------------------------------- */
+  --shadow-1:
+    0 1px 1px rgb(46 27 34 / 0.04),
+    0 1px 2px rgb(46 27 34 / 0.04);
+  --shadow-2:
+    0 1px 1px rgb(46 27 34 / 0.04),
+    0 2px 4px rgb(46 27 34 / 0.04),
+    0 4px 8px rgb(46 27 34 / 0.03);
+  --shadow-3:
+    0 1px 2px rgb(46 27 34 / 0.05),
+    0 4px 8px rgb(46 27 34 / 0.04),
+    0 8px 16px rgb(46 27 34 / 0.04);
+  --shadow-4:
+    0 1px 2px rgb(46 27 34 / 0.05),
+    0 6px 12px rgb(46 27 34 / 0.05),
+    0 14px 28px rgb(46 27 34 / 0.05);
+  --shadow-5:
+    0 2px 4px rgb(46 27 34 / 0.05),
+    0 10px 20px rgb(46 27 34 / 0.06),
+    0 24px 44px rgb(46 27 34 / 0.06);
+  --shadow-6:
+    0 2px 6px rgb(46 27 34 / 0.06),
+    0 16px 32px rgb(46 27 34 / 0.07),
+    0 36px 68px rgb(46 27 34 / 0.07);
+  --shadow-7:
+    0 4px 10px rgb(46 27 34 / 0.07),
+    0 24px 48px rgb(46 27 34 / 0.09),
+    0 56px 100px rgb(46 27 34 / 0.10);
+  /* The accent glow keeps a tight contact edge so the pill still feels seated
+     rather than floating in a pink cloud. */
+  --shadow-accent:
+    0 1px 2px rgb(124 13 51 / 0.24),
+    0 4px 10px rgb(201 24 74 / 0.22),
+    0 10px 24px rgb(201 24 74 / 0.18);
+
+  /* Inner light. A 1px highlight along the top edge makes a surface read as
+     lit from above — the single cheapest "expensive" detail in UI. */
+  --sheen: inset 0 1px 0 rgb(255 255 255 / 0.65);
+  --sheen-accent: inset 0 1px 0 rgb(255 255 255 / 0.22);
+
+  /* ---------- MOTION ----------------------------------------------------
+     Asymmetric by design: things should LEAVE faster than they ARRIVE.
+     Equal in/out timing is the tell of an unconsidered interface. */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease:        cubic-bezier(0.22, 1, 0.36, 1);      /* general, decelerating */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);       /* arrivals — long tail */
+  --ease-in:     cubic-bezier(0.4, 0, 1, 1);          /* exits — get gone */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);    /* a single soft overshoot */
+
+  /* ---------- LAYOUT ---------------------------------------------------- */
+  --tap-target: 44px;
+  --shell-max:  1440px;
+  --sidebar-w:  248px;
+  --tabbar-h:   68px;
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   DARK MODE — the "Material: light & dark" board
+   ========================================================================== */
+[data-theme="dark"] {
+  --color-bg:              var(--plum-1000);
+  --color-surface:         var(--plum-950);
+  --color-surface-sunken:  #1B0F14;
+  --color-surface-raised:  var(--plum-800);
+  --color-surface-inverse: var(--cream-50);
+  --color-hazy:            rgb(32 18 24 / 0.74);
+  --color-hazy-border:     rgb(255 255 255 / 0.10);
+  --color-scrim:           rgb(0 0 0 / 0.60);
+
+  --color-border:        rgb(255 255 255 / 0.10);
+  --color-border-strong: rgb(255 255 255 / 0.18);
+  --color-border-subtle: rgb(255 255 255 / 0.06);
+
+  --color-text:           #F7EDF0;
+  --color-text-secondary: #C6ADB6;
+  --color-text-muted:     #97808A;
+  --color-text-inverse:   #2E1B22;
+  --color-text-accent:    var(--pink-200);
+
+  --color-accent:        var(--pink-500);
+  --color-accent-hover:  var(--pink-400);
+  --color-accent-light:  rgb(210 43 91 / 0.16);
+
+  --color-primary:       var(--cream-50);
+  --color-on-primary:    #2E1B22;
+  --color-secondary:     var(--plum-800);
+  --color-on-secondary:  #F7EDF0;
+
+  --color-positive-light:   rgb(31 175 98 / 0.18);
+  --color-warning-light:    rgb(229 160 17 / 0.18);
+  --color-destructive-light: rgb(255 59 48 / 0.18);
+
+  /* Dark surfaces need depth from a light EDGE, not a darker shadow — a black
+     shadow on near-black is invisible. Each level pairs a real shadow with a
+     hairline rim so cards separate from the ground. */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.40), inset 0 0 0 1px rgb(255 255 255 / 0.04);
+  --shadow-2: 0 2px 6px rgb(0 0 0 / 0.45), inset 0 0 0 1px rgb(255 255 255 / 0.05);
+  --shadow-3: 0 4px 12px rgb(0 0 0 / 0.50), inset 0 0 0 1px rgb(255 255 255 / 0.06);
+  --shadow-4: 0 8px 24px rgb(0 0 0 / 0.55), inset 0 0 0 1px rgb(255 255 255 / 0.07);
+  --shadow-5: 0 14px 40px rgb(0 0 0 / 0.60), inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-6: 0 22px 60px rgb(0 0 0 / 0.65), inset 0 0 0 1px rgb(255 255 255 / 0.09);
+  --shadow-7: 0 32px 90px rgb(0 0 0 / 0.70), inset 0 0 0 1px rgb(255 255 255 / 0.10);
+  --sheen: inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --sheen-accent: inset 0 1px 0 rgb(255 255 255 / 0.16);
+  color-scheme: dark;
+}

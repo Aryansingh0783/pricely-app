@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pricely</title>
+<meta name="description" content="Pricely — nail studio inventory, pricing and profit for a freelance nail artist.">
+<meta name="theme-color" content="#FBF7F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#170D11" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pricely">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20180%20180'%3E%3Crect%20width='180'%20height='180'%20rx='40'%20fill='%232B1A1F'/%3E%3Cg%20transform='translate(48.0%2027.0)%20scale(1.312)'%3E%3Ctext%20x='32'%20y='72'%20text-anchor='middle'%20font-family='Georgia,%20Playfair%20Display,%20serif'%20font-weight='700'%20font-size='72'%20fill='%23F7C6D1'%3E%E2%82%B9%3C/text%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%232B1A1F'/%3E%3Cg%20transform='translate(17.1%209.6)%20scale(0.467)'%3E%3Ctext%20x='32'%20y='72'%20text-anchor='middle'%20font-family='Georgia,%20Playfair%20Display,%20serif'%20font-weight='700'%20font-size='72'%20fill='%23F7C6D1'%3E%E2%82%B9%3C/text%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>/*__TOKENS__*/</style>
+<style>/*__APPCSS__*/</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+
+<script>/*__ENGINE__*/</script>
+<script>/*__APPJS__*/</script>
+<script>
+/* iOS Home Screen coach.
+   iOS fires no install prompt, so we teach the Share gesture — but ONLY on
+   iOS Safari, outside standalone, once ever.
+
+   It is BUILT IN JS and REMOVED from the DOM on dismiss. The previous version
+   shipped it in the markup with `hidden` plus an inline `display:flex`, and an
+   inline display beats the UA's `[hidden]{display:none}` rule. Result: it was
+   visible on every platform and the "Got it" button did nothing. Never pair
+   `hidden` with an inline display. */
+(function () {
+  // Financial records must not be evicted. Ask the browser to keep them.
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist();
+
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  var standalone = window.navigator.standalone === true ||
+                   (typeof window.matchMedia === "function" &&
+                    window.matchMedia("(display-mode: standalone)").matches);
+  if (!isIOS || standalone || localStorage.getItem("nsos.coach")) return;
+
+  setTimeout(function () {
+    var el = document.createElement("div");
+    el.className = "coach";
+    el.innerHTML =
+      '<div class="coach-text"><b>Add to Home Screen</b><br>' +
+      'Tap <span class="dim">Share&nbsp;↑</span> then “Add to Home Screen” to use this like an app.</div>' +
+      '<button class="coach-btn" type="button">Got it</button>';
+    el.querySelector(".coach-btn").addEventListener("click", function () {
+      localStorage.setItem("nsos.coach", "1");
+      el.remove();
+    });
+    document.body.appendChild(el);
+  }, 2500);
+})();
+</script>
+</body>
+</html>

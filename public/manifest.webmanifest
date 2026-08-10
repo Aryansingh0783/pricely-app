@@ -1,0 +1,26 @@
+{
+  "name": "Pricely",
+  "short_name": "Pricely",
+  "description": "Pricely — nail studio inventory, pricing and profit for a freelance nail artist.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF7F3",
+  "theme_color": "#2B1A1F",
+  "categories": ["business", "productivity", "finance"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20192%20192'%3E%3Crect%20width='192'%20height='192'%20rx='44'%20fill='%232B1A1F'/%3E%3Cg%20transform='translate(51.2%2028.8)%20scale(1.400)'%3E%3Ctext%20x='32'%20y='72'%20text-anchor='middle'%20font-family='Georgia,%20Playfair%20Display,%20serif'%20font-weight='700'%20font-size='72'%20fill='%23F7C6D1'%3E%E2%82%B9%3C/text%3E%3C/g%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Crect%20width='512'%20height='512'%20rx='116'%20fill='%232B1A1F'/%3E%3Cg%20transform='translate(136.5%2076.8)%20scale(3.733)'%3E%3Ctext%20x='32'%20y='72'%20text-anchor='middle'%20font-family='Georgia,%20Playfair%20Display,%20serif'%20font-weight='700'%20font-size='72'%20fill='%23F7C6D1'%3E%E2%82%B9%3C/text%3E%3C/g%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

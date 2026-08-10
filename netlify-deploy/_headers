@@ -1,0 +1,7 @@
+# Always fetch the latest shell; the service worker handles offline caching.
+/index.html
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-cache
+/manifest.webmanifest
+  Cache-Control: no-cache
